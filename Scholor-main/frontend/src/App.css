@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+}
+
+/* Original body styles for login pages */
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background: linear-gradient(to right, #0d0d0d, #1a1a1a);
+	color: #fff;
+}
+
+/* Dashboard pages styles - these are applied via class names */
+.dashboard-page {
+	background-color: #f5f7fa;
+	color: #333;
+	min-height: 100vh;
+	width: 100%;
+	overflow-x: hidden;
+}
+
+/* Fix for dashboard containers */
+.dashboard-container {
+	display: flex;
+	width: 100%;
+	min-height: 100vh;
+	overflow-x: hidden;
+}
+
+/* Fix content areas */
+.main-content,
+.dashboard-content {
+	flex: 1;
+	background-color: #f3f6fa;
+	padding: 2rem;
+	min-height: 100vh;
+	box-sizing: border-box;
+	color: black;
+	width: 100%;
+	max-width: 100%;
+}
+
+/* Fix modal positioning */
+.modal-overlay {
+	position: fixed;
+	z-index: 1000;
+}
+
+.login-container {
+	background: rgba(255, 255, 255, 0.1);
+	padding: 30px;
+	width: 350px;
+	border-radius: 10px;
+	text-align: center;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+	font-size: 24px;
+	margin-bottom: 10px;
+}
+
+p {
+	font-size: 14px;
+	margin-bottom: 15px;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+}
+
+label {
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+
+input {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 15px;
+	border: none;
+	border-radius: 5px;
+}
+
+.forgot-password {
+	text-align: right;
+	font-size: 12px;
+}
+
+.forgot-password a {
+	color: #a0d9ff;
+	text-decoration: none;
+}
+
+.sign-in-btn {
+	background: #27ae60;
+	color: white;
+	padding: 10px;
+	font-size: 16px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-top: 10px;
+}
+
+.sign-in-btn:hover {
+	background: #219150;
+}
+
+.social-login {
+	margin-top: 15px;
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+}
+
+.social-login img {
+	width: 32px;
+	cursor: pointer;
+}
+
+.create-account {
+	margin-top: 15px;
+	font-size: 14px;
+}
+
+.create-account a {
+	color: #a0d9ff;
+	text-decoration: none;
+}

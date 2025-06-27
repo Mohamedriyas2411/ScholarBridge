@@ -1,0 +1,511 @@
+.dashboard-containera {
+    display: flex;
+    width: 200%;
+    min-height: 100vh;
+    margin-left: -48%;
+    position: relative;
+    background-color: #f5f7fa;
+  }
+  
+  .dashboard-content {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    height: 100vh;
+    background-color: #f5f7fa;
+  }
+  
+  .dashboard-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  
+  .dashboard-stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .dashboard-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    flex: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    text-align: center;
+  }
+  
+  .stat-value {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2563eb;
+    margin-bottom: 0.5rem;
+  }
+  
+  .stat-label {
+    color: #4b5563;
+    font-size: 0.875rem;
+  }
+  
+  /* Filter section styles */
+  .filter-section {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    overflow: visible;
+  }
+  
+  .filter-section h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #1f2937;
+  }
+  
+  .filter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .filter-group {
+    margin-bottom: 1rem;
+  }
+  
+  .filter-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    color: #4b5563;
+  }
+  
+  .filter-group select,
+  .filter-group input[type="number"],
+  .filter-group input[type="text"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 0.875rem;
+  }
+  
+  .filter-row {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .range-inputs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .range-inputs span {
+    color: #6b7280;
+  }
+  
+  .range-inputs input {
+    flex: 1;
+  }
+  
+  .save-filters-btn {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-top: 1rem;
+    align-self: flex-start;
+  }
+  
+  .save-filters-btn:hover {
+    background-color: #1d4ed8;
+  }
+  
+  /* Students list */
+  .students-heading {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #1f2937;
+  }
+  
+  .students-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+    overflow: visible;
+  }
+  
+  .student-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .student-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .student-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .student-info h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: #1f2937;
+  }
+  
+  .student-info p {
+    margin: 0.25rem 0 0;
+    font-size: 0.875rem;
+    color: #4b5563;
+  }
+  
+  .financial-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .financial-info p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #4b5563;
+  }
+  
+  .view-details-btn {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+  }
+  
+  .view-details-btn:hover {
+    background-color: #1d4ed8;
+  }
+  
+  .no-students {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    color: #6b7280;
+  }
+  
+  .loading, .error-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+  }
+  
+  .error-message {
+    color: #ef4444;
+  }
+  
+  /* Modal styles */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .student-details-modal {
+    background-color: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin: 2rem auto;
+  }
+  
+  .close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #6b7280;
+  }
+  
+  .modal-header {
+    padding: 1.5rem;
+    background-color: #f3f4f6;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .student-modal-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .modal-header h3 {
+    margin: 0 0 0.25rem;
+    font-size: 1.25rem;
+    color: #1f2937;
+  }
+  
+  .modal-header p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #4b5563;
+  }
+  
+  .modal-body {
+    padding: 1.5rem;
+  }
+  
+  .detail-section {
+    margin-bottom: 1.5rem;
+  }
+  
+  .detail-section h4 {
+    margin: 0 0 0.75rem;
+    font-size: 1rem;
+    color: #1f2937;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem 1.5rem;
+  }
+  
+  .detail-item {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .detail-label {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-bottom: 0.25rem;
+  }
+  
+  .detail-value {
+    font-size: 0.875rem;
+    color: #1f2937;
+    font-weight: 500;
+  }
+  
+  .payment-section {
+    background-color: #f9fafb;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+  }
+  
+  .payment-form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .amount-input {
+    position: relative;
+    flex: 1;
+  }
+  
+  .currency-symbol {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+  }
+  
+  .amount-input input {
+    width: 100%;
+    padding: 0.5rem 0.5rem 0.5rem 1.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .send-request-btn {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  
+  .send-request-btn:hover {
+    background-color: #1d4ed8;
+  }
+  
+  .send-request-btn:disabled {
+    background-color: #93c5fd;
+    cursor: not-allowed;
+  }
+  
+  .payment-note {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin: 0;
+  }
+  
+  li{
+    list-style: none;
+  }
+  
+  .financial-need {
+    font-weight: 500;
+    color: #2563eb;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .need-badge {
+    background-color: #fee2e2;
+    color: #dc2626;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .detail-item.highlight {
+    background-color: #f3f4f6;
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    border: 1px solid #e5e7eb;
+  }
+  
+  .detail-item.highlight .detail-label {
+    color: #1f2937;
+    font-weight: 500;
+  }
+  
+  .detail-item.highlight .detail-value {
+    color: #2563eb;
+    font-weight: 600;
+  }
+  
+  /* Certificates section styles */
+  .certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .certificate-item {
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .certificate-preview {
+    height: 150px;
+    background-color: #f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .certificate-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .pdf-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: #dc2626;
+  }
+  
+  .pdf-preview i {
+    font-size: 2rem;
+  }
+  
+  .pdf-preview span {
+    font-size: 0.875rem;
+    color: #4b5563;
+  }
+  
+  .view-certificate-btn {
+    padding: 0.75rem;
+    background-color: #f3f4f6;
+    color: #2563eb;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-top: 1px solid #e5e7eb;
+    transition: background-color 0.2s;
+  }
+  
+  .view-certificate-btn:hover {
+    background-color: #e5e7eb;
+  }
+  
+  .no-certificates {
+    text-align: center;
+    color: #6b7280;
+    padding: 1rem;
+    background-color: #f9fafb;
+    border-radius: 4px;
+    margin-top: 1rem;
+  }
+  
+  /* Add Font Awesome for PDF icon */
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+  

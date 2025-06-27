@@ -1,0 +1,55 @@
+.mentorship-container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background: #f3f6fa;
+    overflow-x: hidden;
+  }
+  
+  .mentorship-content {
+    flex: 1;
+    padding: 2rem;
+    background-color: #f3f6fa;
+    min-height: 100vh;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .mentorship-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mentorship-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    margin-bottom: 1.5rem;
+  }
+  
+  .button-group {
+    margin-top: 1rem;
+  }
+  
+  .btn-accept {
+    background-color: #10b981;
+    color: white;
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .btn-decline {
+    background-color: #ef4444;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  

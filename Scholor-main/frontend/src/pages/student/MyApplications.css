@@ -1,0 +1,78 @@
+.my-applications {
+    padding: 30px;
+    color: black;
+    background-color: white;
+    width: 70vw;
+    margin-left: 50px;
+  }
+  
+  .my-applications h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .application-table {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+  
+  .application-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .application-table th,
+  .application-table td {
+    padding: 16px 20px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 16px;
+  }
+  
+  .application-table th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+  }
+  
+  .status {
+    padding: 5px 12px;
+    border-radius: 16px;
+    font-size: 14px;
+    color: white;
+    display: inline-block;
+  }
+  
+  .status.approved {
+    background-color: #28a745;
+  }
+  
+  .status.pending {
+    background-color: #f0ad4e;
+  }
+  
+  .status.rejected {
+    background-color: #dc3545;
+  }
+  
+  .view-btn,
+  .withdraw-btn {
+    margin-right: 8px;
+    padding: 6px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .view-btn {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  .withdraw-btn {
+    background-color: #f39c12;
+    color: white;
+  }
+  
