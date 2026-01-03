@@ -1,11 +1,11 @@
 /* src/pages/Dashboard.css */
 .dash {
   display: flex;
-  width: 135%;
+  width: 100%;
   min-height: 100vh;
   background: #f3f6fa;
   overflow-x: hidden;
-  margin-left: -50px;
+  margin-left: 0;
 }
 
 .main-content {

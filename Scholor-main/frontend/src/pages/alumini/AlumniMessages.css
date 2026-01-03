@@ -1,0 +1,293 @@
+/* AlumniMessages.css - Following AlumniDashboard.css styling patterns */
+
+.alumni-messages-container {
+  display: flex;
+  gap: 1.5rem;
+  height: calc(100vh - 150px);
+  background-color: #f5f7fa;
+}
+
+.alumni-conversations-list {
+  width: 350px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.alumni-conversations-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.alumni-conversations-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.alumni-new-chat-btn {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.alumni-new-chat-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.alumni-new-chat-section {
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.alumni-new-chat-section h4 {
+  margin: 0 0 1rem 0;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.alumni-users-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.alumni-user-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.alumni-user-item:hover {
+  background-color: #f5f7fa;
+}
+
+.alumni-user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.alumni-user-info {
+  flex: 1;
+}
+
+.alumni-user-info strong {
+  display: block;
+  font-size: 0.875rem;
+  color: #1f2937;
+}
+
+.alumni-user-info p {
+  margin: 0.2rem 0 0 0;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.alumni-no-connections-msg {
+  text-align: center;
+  color: #9ca3af;
+  padding: 1rem;
+  font-size: 0.875rem;
+}
+
+.alumni-conversations-items {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.alumni-conversation-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.alumni-conversation-item:hover {
+  background-color: #f5f7fa;
+}
+
+.alumni-conversation-item.active {
+  background-color: #dbeafe;
+}
+
+.alumni-conversation-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.alumni-conversation-info {
+  flex: 1;
+  overflow: hidden;
+}
+
+.alumni-conversation-info strong {
+  display: block;
+  font-size: 1rem;
+  color: #1f2937;
+  margin-bottom: 0.2rem;
+}
+
+.alumni-last-message {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #4b5563;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.alumni-messages-panel {
+  flex: 1;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.alumni-messages-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.alumni-header-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.alumni-messages-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.alumni-messages-list {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.alumni-message {
+  display: flex;
+  max-width: 70%;
+}
+
+.alumni-message.sent {
+  margin-left: auto;
+}
+
+.alumni-message.received {
+  margin-right: auto;
+}
+
+.alumni-message-content {
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  word-wrap: break-word;
+}
+
+.alumni-message.sent .alumni-message-content {
+  background-color: #2563eb;
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.alumni-message.received .alumni-message-content {
+  background-color: #f5f7fa;
+  color: #1f2937;
+  border-bottom-left-radius: 4px;
+}
+
+.alumni-message-content p {
+  margin: 0 0 0.3rem 0;
+  font-size: 0.95rem;
+}
+
+.alumni-message-time {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.alumni-message-input {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.alumni-message-input input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  outline: none;
+}
+
+.alumni-message-input input:focus {
+  border-color: #2563eb;
+}
+
+.alumni-message-input button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.alumni-message-input button:hover {
+  background-color: #1d4ed8;
+}
+
+.alumni-no-conversation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #6b7280;
+}
+
+.alumni-no-conversation p {
+  font-size: 1.1rem;
+}

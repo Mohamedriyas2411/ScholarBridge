@@ -99,7 +99,8 @@ router.post("/login", async (req, res) => {
 			{ 
 				_id: student._id, 
 				username: student.username,
-				email: student.email 
+				email: student.email,
+				userType: 'Student'
 			},
 			JWT_SECRET,
 			{ expiresIn: "24h" },
@@ -131,7 +132,8 @@ router.post("/aluminiLogin", async (req, res) => {
 			{ 
 				_id: alumini._id, 
 				username: alumini.username,
-				email: alumini.email
+				email: alumini.email,
+				userType: 'Alumni'
 			},
 			JWT_SECRET,
 			{ expiresIn: "24h" },

@@ -10,9 +10,13 @@ import MyApplications from "./pages/student/MyApplications";
 import ConnectWithAlumni from "./pages/student/ConnectWithAlumni ";
 import StudentProfile from "./pages/student/StudentProfile";
 import FillToApply from "./pages/student/FillToApply";
+import Messages from "./pages/student/Messages";
+import Connections from "./pages/student/Connections";
 import AlumniDashboard from "./pages/alumini/AlumniDashboard";
 import IncomingRequests from "./pages/alumini/IncomingRequests";
 import AlumniMentorship from "./pages/alumini/AlumniMentorship";
+import AlumniMessages from "./pages/alumini/AlumniMessages";
+import AlumniConnections from "./pages/alumini/AlumniConnections";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 function App() {
@@ -29,9 +33,13 @@ function App() {
 					<Route path="/profile" element={<StudentProfile />} />
 					<Route path="/fill-to-apply" element={<FillToApply />} />
 					<Route path="/payment-requests" element={<AvailableScholarships />} />
+					<Route path="/connections" element={<Connections />} />
+					<Route path="/messages" element={<Messages />} />
 					<Route path="/aluminidash" element={<AlumniDashboard />} />
 					<Route path="/requests" element={<IncomingRequests />} />
 					<Route path="/scholarships" element={<AlumniMentorship />} />
+					<Route path="/alumni-connections" element={<AlumniConnections />} />
+					<Route path="/alumni-messages" element={<AlumniMessages />} />
 				</Routes>
 			</BrowserRouter>
 		</div>

@@ -16,7 +16,9 @@ const AlumniSidebar = () => {
 
   const menuItems = [
     { name: 'Dashboard', path: '/aluminidash' },
-    { name: 'Student Requests', path: '/requests' }, // FIXED PATH
+    { name: 'Student Requests', path: '/requests' },
+    { name: 'Network', path: '/alumni-connections' },
+    { name: 'Messages', path: '/alumni-messages' },
   ];
 
   return (

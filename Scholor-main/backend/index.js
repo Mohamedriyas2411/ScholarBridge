@@ -8,6 +8,8 @@ import { fileURLToPath } from "url";
 import authRoutes from "./routes/authRoutes.js";
 import studentRoutes from "./routes/studentRoutes.js";
 import alumniRoutes from "./routes/alumniRoutes.js";
+import messageRoutes from "./routes/messageRoutes.js";
+import connectionRoutes from "./routes/connectionRoutes.js";
 
 // Get dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -41,6 +43,8 @@ console.log(`Serving static files from: ${uploadsDir}`);
 app.use("/auth", authRoutes);
 app.use("/api/student", studentRoutes);
 app.use("/api/alumni", alumniRoutes);
+app.use("/api/messages", messageRoutes);
+app.use("/api/connections", connectionRoutes);
 
 // Health check route
 app.get("/health", (req, res) => {

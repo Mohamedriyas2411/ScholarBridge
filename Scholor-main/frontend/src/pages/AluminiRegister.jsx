@@ -75,9 +75,10 @@ const AluminiRegister = () => {
 	};
 
 	return (
-		<div className="login-container">
-			<h2>Alumni Register</h2>
-			<p>Create your account to get started</p>
+		<div className="login-page-wrapper">
+			<div className="login-container">
+				<h2>Alumni Register</h2>
+				<p>Create your account to get started</p>
 			
 			{error && <div className="error-message">{error}</div>}
 			{success && <div className="success-message">{success}</div>}
@@ -148,7 +149,8 @@ const AluminiRegister = () => {
 				<p className="create-account">
 					<a href="/register">Student Registration</a>
 				</p>
-			</form>
+				</form>
+			</div>
 		</div>
 	);
 };

@@ -48,9 +48,10 @@ const Register = () => {
 	};
 
 	return (
-		<div className="login-container">
-			<h2>Student Register</h2>
-			<p>Create your account to get started</p>
+		<div className="login-page-wrapper">
+			<div className="login-container">
+				<h2>Student Register</h2>
+				<p>Create your account to get started</p>
 
 			<form onSubmit={handleSubmit}>
 				<label htmlFor="username">Username</label>
@@ -109,7 +110,8 @@ const Register = () => {
 				<p className="create-account">
 					<a href="/aluminiRegister">Alumini Registration</a>
 				</p>
-			</form>
+				</form>
+			</div>
 		</div>
 	);
 };

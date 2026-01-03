@@ -1,11 +1,11 @@
 .page-container {
     display: flex;
-    width: 225%;
+    width: 100%;
     min-height: 100vh;
     background: #f3f6fa;
     overflow-x: hidden;
     color: black;
-    margin-left: -42%;
+    margin-left: 0;
   }
   
   .content {

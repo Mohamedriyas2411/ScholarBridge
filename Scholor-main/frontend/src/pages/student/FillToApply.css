@@ -31,9 +31,7 @@
   padding: 2rem;
   height: 100vh;
   overflow-y: auto;
-  width: 1300px;
-   /* Width of the sidebar */
-   margin-left: 200px;
+  margin-left: 240px;
   box-sizing: border-box;
   color: black;
 }

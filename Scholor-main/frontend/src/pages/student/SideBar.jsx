@@ -20,6 +20,8 @@ const Sidebar = () => {
       <ul>
         <li><NavLink to="/fill-to-apply" className={({ isActive }) => isActive ? "active" : ""}>Fill to Apply</NavLink></li>
         <li><NavLink to="/payment-requests" className={({ isActive }) => isActive ? "active" : ""}>Payment Requests</NavLink></li>
+        <li><NavLink to="/connections" className={({ isActive }) => isActive ? "active" : ""}>Network</NavLink></li>
+        <li><NavLink to="/messages" className={({ isActive }) => isActive ? "active" : ""}>Messages</NavLink></li>
         <li><NavLink to="/profile" className={({ isActive }) => isActive ? "active" : ""}>Profile</NavLink></li>
         <li>
           <button 

@@ -46,9 +46,10 @@ const Login = () => {
 	};
 
 	return (
-		<div className="login-container">
-			<h2>Student Login</h2>
-			<p>Please Enter your Account details</p>
+		<div className="login-page-wrapper">
+			<div className="login-container">
+				<h2>Student Login</h2>
+				<p>Please Enter your Account details</p>
 
 			{error && <div className="error-message">{error}</div>}
 
@@ -95,7 +96,8 @@ const Login = () => {
 				<p className="create-account">
 					<a href="/aluminiLogin">Alumini Login</a>
 				</p>
-			</form>
+				</form>
+			</div>
 		</div>
 	);
 };
