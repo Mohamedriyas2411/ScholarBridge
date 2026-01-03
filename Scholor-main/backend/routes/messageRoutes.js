@@ -5,7 +5,10 @@ import {
   getOrCreateConversation,
   getMessages,
   sendMessage,
-  getUsersList
+  getUsersList,
+  deleteMessage,
+  clearConversationMessages,
+  deleteConversation
 } from '../controllers/messageController.js';
 
 const router = express.Router();
@@ -27,5 +30,14 @@ router.post('/messages', sendMessage);
 
 // Get list of users to message
 router.get('/users', getUsersList);
+
+// Delete a single message
+router.delete('/messages/:messageId', deleteMessage);
+
+// Clear all messages in a conversation
+router.delete('/conversations/:conversationId/messages', clearConversationMessages);
+
+// Delete entire conversation
+router.delete('/conversations/:conversationId', deleteConversation);
 
 export default router;

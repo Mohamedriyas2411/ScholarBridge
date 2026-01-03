@@ -174,10 +174,16 @@
 
 .alumni-messages-header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 1rem;
   padding: 1.5rem;
   border-bottom: 1px solid #e5e7eb;
+}
+
+.alumni-header-user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .alumni-header-avatar {
@@ -192,6 +198,62 @@
   font-size: 1.1rem;
   font-weight: 600;
   color: #1f2937;
+}
+
+.alumni-header-actions {
+  position: relative;
+}
+
+.alumni-options-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: #6b7280;
+  transition: color 0.2s;
+}
+
+.alumni-options-btn:hover {
+  color: #1f2937;
+}
+
+.alumni-options-menu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 180px;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.alumni-options-menu button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  background: white;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: #1f2937;
+  transition: background-color 0.2s;
+}
+
+.alumni-options-menu button:hover {
+  background-color: #f5f7fa;
+}
+
+.alumni-options-menu .alumni-delete-option {
+  color: #dc2626;
+}
+
+.alumni-options-menu .alumni-delete-option:hover {
+  background-color: #fee2e2;
 }
 
 .alumni-messages-list {
@@ -239,9 +301,30 @@
   font-size: 0.95rem;
 }
 
+.alumni-message-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
 .alumni-message-time {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   opacity: 0.7;
+}
+
+.alumni-delete-message-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.2rem;
+  font-size: 14px;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.alumni-delete-message-btn:hover {
+  opacity: 1;
 }
 
 .alumni-message-input {

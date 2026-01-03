@@ -11,6 +11,7 @@ const Messages = () => {
   const [showNewChat, setShowNewChat] = useState(false);
   const [availableUsers, setAvailableUsers] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [showOptions, setShowOptions] = useState(false);
   const messagesEndRef = useRef(null);
   
   // Safely get current user from localStorage
@@ -118,6 +119,46 @@ const Messages = () => {
     }
   };
 
+  const deleteMessage = async (messageId) => {
+    if (!window.confirm('Are you sure you want to delete this message?')) return;
+    
+    try {
+      await api.delete(`/api/messages/messages/${messageId}`);
+      fetchMessages(selectedConversation._id);
+      fetchConversations();
+    } catch (error) {
+      console.error('Error deleting message:', error);
+      alert('Error deleting message');
+    }
+  };
+
+  const clearAllMessages = async () => {
+    if (!window.confirm('Are you sure you want to clear all messages in this conversation?')) return;
+    
+    try {
+      await api.delete(`/api/messages/conversations/${selectedConversation._id}/messages`);
+      fetchMessages(selectedConversation._id);
+      fetchConversations();
+    } catch (error) {
+      console.error('Error clearing messages:', error);
+      alert('Error clearing messages');
+    }
+  };
+
+  const deleteConversation = async () => {
+    if (!window.confirm('Are you sure you want to delete this entire conversation?')) return;
+    
+    try {
+      await api.delete(`/api/messages/conversations/${selectedConversation._id}`);
+      setSelectedConversation(null);
+      setMessages([]);
+      fetchConversations();
+    } catch (error) {
+      console.error('Error deleting conversation:', error);
+      alert('Error deleting conversation');
+    }
+  };
+
   const getOtherParticipant = (conversation) => {
     if (!currentUser || !conversation || !conversation.participants) return null;
     return conversation.participants.find(p => p.userId !== currentUser._id);
@@ -201,12 +242,28 @@ const Messages = () => {
             {selectedConversation ? (
               <>
                 <div className="messages-header">
-                  <img 
-                    src={getOtherParticipant(selectedConversation)?.profilePicture || '/default-avatar.png'} 
-                    alt={getOtherParticipant(selectedConversation)?.username}
-                    className="header-avatar"
-                  />
-                  <h3>{getOtherParticipant(selectedConversation)?.username}</h3>
+                  <div className="header-user-info">
+                    <img 
+                      src={getOtherParticipant(selectedConversation)?.profilePicture || '/default-avatar.png'} 
+                      alt={getOtherParticipant(selectedConversation)?.username}
+                      className="header-avatar"
+                    />
+                    <h3>{getOtherParticipant(selectedConversation)?.username}</h3>
+                  </div>
+                  <div className="header-actions">
+                    <button 
+                      className="options-btn"
+                      onClick={() => setShowOptions(!showOptions)}
+                    >
+                      ⋮
+                    </button>
+                    {showOptions && (
+                      <div className="options-menu">
+                        <button onClick={clearAllMessages}>Clear All Messages</button>
+                        <button onClick={deleteConversation} className="delete-option">Delete Conversation</button>
+                      </div>
+                    )}
+                  </div>
                 </div>
 
                 <div className="messages-list">
@@ -217,9 +274,20 @@ const Messages = () => {
                     >
                       <div className="message-content">
                         <p>{message.content}</p>
-                        <span className="message-time">
-                          {new Date(message.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                        </span>
+                        <div className="message-footer">
+                          <span className="message-time">
+                            {new Date(message.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                          </span>
+                          {currentUser && message.sender.userId === currentUser._id && (
+                            <button 
+                              className="delete-message-btn"
+                              onClick={() => deleteMessage(message._id)}
+                              title="Delete message"
+                            >
+                              🗑️
+                            </button>
+                          )}
+                        </div>
                       </div>
                     </div>
                   ))}

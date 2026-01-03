@@ -232,3 +232,112 @@ export const getUsersList = async (req, res) => {
     res.status(500).json({ message: 'Error fetching users list', error: error.message });
   }
 };
+
+// Delete a single message
+export const deleteMessage = async (req, res) => {
+  try {
+    const { messageId } = req.params;
+    const userId = req.user._id;
+    
+    // Find the message
+    const message = await Message.findById(messageId);
+    
+    if (!message) {
+      return res.status(404).json({ message: 'Message not found' });
+    }
+    
+    // Check if the user is the sender of the message
+    if (message.sender.userId.toString() !== userId.toString()) {
+      return res.status(403).json({ message: 'You can only delete your own messages' });
+    }
+    
+    // Delete the message
+    await Message.findByIdAndDelete(messageId);
+    
+    // Update the last message in the conversation if this was the last message
+    const conversation = await Conversation.findById(message.conversationId);
+    if (conversation && conversation.lastMessage && 
+        conversation.lastMessage.messageId && 
+        conversation.lastMessage.messageId.toString() === messageId) {
+      // Find the new last message
+      const lastMessage = await Message.findOne({ conversationId: message.conversationId })
+        .sort({ timestamp: -1 })
+        .limit(1);
+      
+      if (lastMessage) {
+        conversation.lastMessage = {
+          messageId: lastMessage._id,
+          content: lastMessage.content,
+          timestamp: lastMessage.timestamp
+        };
+      } else {
+        conversation.lastMessage = null;
+      }
+      await conversation.save();
+    }
+    
+    res.json({ message: 'Message deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting message:', error);
+    res.status(500).json({ message: 'Error deleting message', error: error.message });
+  }
+};
+
+// Clear all messages in a conversation
+export const clearConversationMessages = async (req, res) => {
+  try {
+    const { conversationId } = req.params;
+    const userId = req.user._id;
+    
+    // Check if user is part of the conversation
+    const conversation = await Conversation.findOne({
+      _id: conversationId,
+      'participants.userId': userId
+    });
+    
+    if (!conversation) {
+      return res.status(404).json({ message: 'Conversation not found' });
+    }
+    
+    // Delete all messages in the conversation
+    await Message.deleteMany({ conversationId });
+    
+    // Clear the last message in conversation
+    conversation.lastMessage = null;
+    await conversation.save();
+    
+    res.json({ message: 'All messages cleared successfully' });
+  } catch (error) {
+    console.error('Error clearing messages:', error);
+    res.status(500).json({ message: 'Error clearing messages', error: error.message });
+  }
+};
+
+// Delete entire conversation
+export const deleteConversation = async (req, res) => {
+  try {
+    const { conversationId } = req.params;
+    const userId = req.user._id;
+    
+    // Check if user is part of the conversation
+    const conversation = await Conversation.findOne({
+      _id: conversationId,
+      'participants.userId': userId
+    });
+    
+    if (!conversation) {
+      return res.status(404).json({ message: 'Conversation not found' });
+    }
+    
+    // Delete all messages in the conversation
+    await Message.deleteMany({ conversationId });
+    
+    // Delete the conversation
+    await Conversation.findByIdAndDelete(conversationId);
+    
+    res.json({ message: 'Conversation deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting conversation:', error);
+    res.status(500).json({ message: 'Error deleting conversation', error: error.message });
+  }
+};

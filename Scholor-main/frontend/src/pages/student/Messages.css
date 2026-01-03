@@ -172,10 +172,16 @@
 
 .messages-header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 1rem;
   padding: 1.5rem;
   border-bottom: 1px solid #e5e7eb;
+}
+
+.header-user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .header-avatar {
@@ -189,6 +195,62 @@
   margin: 0;
   font-size: 1.1rem;
   font-weight: bold;
+}
+
+.header-actions {
+  position: relative;
+}
+
+.options-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: #6b7280;
+  transition: color 0.2s;
+}
+
+.options-btn:hover {
+  color: #1f2937;
+}
+
+.options-menu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 180px;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.options-menu button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  background: white;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #1f2937;
+  transition: background-color 0.2s;
+}
+
+.options-menu button:hover {
+  background-color: #f3f6fa;
+}
+
+.options-menu .delete-option {
+  color: #dc2626;
+}
+
+.options-menu .delete-option:hover {
+  background-color: #fee2e2;
 }
 
 .messages-list {
@@ -236,9 +298,30 @@
   font-size: 0.95rem;
 }
 
+.message-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
 .message-time {
   font-size: 0.75rem;
   opacity: 0.7;
+}
+
+.delete-message-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.2rem;
+  font-size: 14px;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.delete-message-btn:hover {
+  opacity: 1;
 }
 
 .message-input {
